@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>The Proud Pink Balloon</title>
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Quattrocento" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quattrocento', serif;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Arvo', serif;
+    }
+    .title {
+      font-family: 'Arvo', serif;
+      font-size: 70px;
+      border: 1px solid lightgrey;
+      padding: 5rem 1rem;
+      line-height: 59px;
+      text-align: center;
+      text-transform: uppercase;
+      width: 25rem;
+    }
+    .title .the {
+      font-size: 75%;
+      text-transform: initial;
+    }
+    .shelf {
+      position: relative;
+      margin: 1rem auto;
+      width: 40rem;
+    }
+    body { margin: 0; }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="shelf">
+    <div class="title">
+      <div class="the">the</div>
+      <div>Proud</div>
+      <div>Pink</div>
+      <div>Balloon</div>
+    </div>
+  </div>
+
+  <canvas id="renderCanvas"></canvas>
+  <script src="babylon.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  var canvas = document.getElementById('renderCanvas');
+  var engine = new BABYLON.Engine(canvas, true);
+  var createScene = function() {
+    // create a basic BJS Scene object
+    var scene = new BABYLON.Scene(engine);
+    scene.clearColor = new BABYLON.Color4(0,0,0,0.1);
+
+    var camera = new BABYLON.UniversalCamera('camera1', new BABYLON.Vector3(0, 5,-10), scene);
+
+    // target the camera to scene origin
+    camera.setTarget(BABYLON.Vector3.Zero());
+
+    // create a basic light, aiming 0,1,0 - meaning, to the sky
+    var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
+
+    // create a built-in "sphere" shape; its constructor takes 5 params: name, width, depth, subdivisions, scene
+    var sphere = BABYLON.Mesh.CreateSphere('sphere1', 16, 2, scene);
+
+    // move the sphere upward 1/2 of its height
+    sphere.position.y = 1;
+
+    // create a built-in "ground" shape; its constructor takes the same 5 params as the sphere's one
+    //var ground = BABYLON.Mesh.CreateGround('ground1', 20, 6, 2, scene);
+    var back = BABYLON.Mesh.CreatePlane("plane", 10.0, scene, false, BABYLON.Mesh.DEFAULTSIDE);
+    back.color = new BABYLON.Color4(0,0,0,0.1);
+
+    // return the created scene
+    return scene;
+  }
+  var scene = createScene();
+  engine.runRenderLoop(function() {
+    scene.render();
+  });
+  window.addEventListener('resize', function() {
+    engine.resize();
+  });
+});
+</script>
+
+</body>
+</html>
