@@ -11,87 +11,78 @@
     h1, h2, h3, h4, h5 {
       font-family: 'Arvo', serif;
     }
-    .title {
+    .main-title {
       font-family: 'Arvo', serif;
       font-size: 70px;
-      border: 1px solid lightgrey;
-      padding: 5rem 1rem;
+      border: 0px solid lightgrey;
+      padding: 1rem 1rem;
       line-height: 59px;
-      text-align: center;
+      text-align: left;
       text-transform: uppercase;
       width: 25rem;
+      margin: 0 auto;
     }
-    .title .the {
+    .main-title .the {
       font-size: 75%;
       text-transform: initial;
     }
-    .shelf {
-      position: relative;
-      margin: 1rem auto;
-      width: 40rem;
+    .author {
+      text-align: left;
+      padding: 0 1.2rem;
+    }
+    .side-by-side {
+      display: flex;
+      margin: 0 auto;
+      justify-content: center;
     }
     body { margin: 0; }
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+    img.pink {
+      height: 35rem;
+    }
+    .right-side p {
+      padding: 1rem 1.2rem;
+    }
+    a {
+      color: #3498db;
+    }
+    a:visited {
+      color: #8e44ad;
+    }
+    .allthetext {
+      padding: 1rem 1.2rem;
     }
   </style>
 </head>
 <body>
-  <div class="shelf">
-    <div class="title">
-      <div class="the">the</div>
-      <div>Proud</div>
-      <div>Pink</div>
-      <div>Balloon</div>
+  <div class="side-by-side">
+    <div>
+      <img src="cover_med.png" class="pink">
+    </div>
+    <div>
+      <div class="main-title">
+        <div class="the">the</div>
+        <div>Proud</div>
+        <div>Pink</div>
+        <div>Balloon</div>
+      </div>
+      <div class="allthetext">
+        <p>
+          The story of a balloon with an inflated ego.
+        </p>
+        <p>
+          By Matt Haggard (his first book)
+        </p>
+        <p>
+          <div>
+            <a href="fooboo">Buy the paperback ($9.99)</a>
+          </div>
+          <div>
+            Hardcover coming soon.  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeV2a2D70IoMWDHBv7D6qi3UbGcRbv1sH-4ZVQQRn5l0JiS7w/viewform" target="_blank">Be notified when it's available</a>
+          </div>
+        </p>
+      </div>
     </div>
   </div>
-
-  <canvas id="renderCanvas"></canvas>
-  <script src="babylon.js"></script>
-<script>
-window.addEventListener('DOMContentLoaded', function() {
-  var canvas = document.getElementById('renderCanvas');
-  var engine = new BABYLON.Engine(canvas, true);
-  var createScene = function() {
-    // create a basic BJS Scene object
-    var scene = new BABYLON.Scene(engine);
-    scene.clearColor = new BABYLON.Color4(0,0,0,0.1);
-
-    var camera = new BABYLON.UniversalCamera('camera1', new BABYLON.Vector3(0, 5,-10), scene);
-
-    // target the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
-
-    // create a basic light, aiming 0,1,0 - meaning, to the sky
-    var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
-
-    // create a built-in "sphere" shape; its constructor takes 5 params: name, width, depth, subdivisions, scene
-    var sphere = BABYLON.Mesh.CreateSphere('sphere1', 16, 2, scene);
-
-    // move the sphere upward 1/2 of its height
-    sphere.position.y = 1;
-
-    // create a built-in "ground" shape; its constructor takes the same 5 params as the sphere's one
-    //var ground = BABYLON.Mesh.CreateGround('ground1', 20, 6, 2, scene);
-    var back = BABYLON.Mesh.CreatePlane("plane", 10.0, scene, false, BABYLON.Mesh.DEFAULTSIDE);
-    back.color = new BABYLON.Color4(0,0,0,0.1);
-
-    // return the created scene
-    return scene;
-  }
-  var scene = createScene();
-  engine.runRenderLoop(function() {
-    scene.render();
-  });
-  window.addEventListener('resize', function() {
-    engine.resize();
-  });
-});
-</script>
 
 </body>
 </html>
