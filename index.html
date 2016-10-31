@@ -22,6 +22,30 @@
     h1, h2, h3, h4, h5 {
       font-family: 'Arvo', serif;
     }
+    .nav {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 1.2rem;
+    }
+    .nav a {
+      padding: 1rem 0rem 0;
+      color: #3498db;
+      text-decoration: none;
+    }
+    .nav a:visited {
+      color: #3498db;
+    }
+    .nav a:before {
+      content: '';
+    }
+    .nav a:after {
+      content: '\2022';
+      padding: 0 .5rem;
+      color: black;
+    }
+    .nav a:last-child:after {
+      content: '';
+    }
     .main-title {
       font-family: 'Arvo', serif;
       font-size: 70px;
@@ -129,6 +153,11 @@
       <img src="cover_med.png" class="pink">
     </div>
     <div>
+      <div class="nav">
+        <a href="#sample">Sample</a>
+        <a href="#buy">Buy</a>
+        <a href="#about">About</a>
+      </div>
       <div class="main-title">
         <div class="the">the</div>
         <div>Proud</div>
@@ -142,6 +171,7 @@
         <p>
           By Matt Haggard (his first book)
         </p>
+        <a name="sample"></a>
         <div class="book" style="width: 7in; height: 3.5in; margin-top: 2rem; transform: rotateZ(-5deg);" id="book">
           <div class="page">
             <div class="front" style="background-image: url(pages/justcover.png); background-size: contain;">
@@ -178,20 +208,21 @@
         </p>
         <hr/>
         <p>
-          Buying options:
+          <a name="buy"></a><h2>Buying options</h2>
           <ul>
             <li>
               <a href="https://goo.gl/forms/9KqDTWTO30CDqKp43" target="_blank" rel="noopener">$0 shipping</a> (if you see Matt regularly)
             </li>
             <li><a href="https://www.createspace.com/6581856">Paperback ($8.99)</a></li>
-            <li>Hardback coming soon.  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeV2a2D70IoMWDHBv7D6qi3UbGcRbv1sH-4ZVQQRn5l0JiS7w/viewform" target="_blank" rel="noopener">Be notified when it's available.</a></li>
+            <li>Hardback (coming soon)<br/><a href="https://docs.google.com/forms/d/e/1FAIpQLSeV2a2D70IoMWDHBv7D6qi3UbGcRbv1sH-4ZVQQRn5l0JiS7w/viewform" target="_blank" rel="noopener">Be notified when hardback is available.</a></li>
           </ul>
         </p>
         <p>
-          <a href="https://www.iffycan.com/proudpink">Read about how this book came about.</a>
+          <a name="about" href="https://www.iffycan.com/proudpink">Read about how this book came about.</a>
         </p>
         <hr/>
         <p>
+          <h2>Newsletter</h2>
           <!-- Begin MailChimp Signup Form -->
           <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
           <style type="text/css">
