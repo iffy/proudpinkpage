@@ -145,6 +145,36 @@
     .book .page:last-child {
       box-shadow: 0px 3px 18px -3px rgba(0,0,0,0.5);
     }
+
+    table.options {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    table.options td,
+    table.options th {
+      border: 1px solid lightgrey;
+      padding: 0.5rem;
+      text-align: center;
+      color: grey;
+    }
+    table.options td:empty {
+      border: 0;
+    }
+    table.options th {
+      color: black;
+    }
+    a.button {
+      color: white;
+      border: 1px solid rgba(52, 152, 219,1.0);
+      background-color: rgba(52, 152, 219,1.0);
+      padding: .5rem;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 2px;
+      font-family: 'Arial';
+      font-weight: normal;
+      text-transform: uppercase;
+    }
   </style>
 </head>
 <body>
@@ -209,18 +239,43 @@
         <hr/>
         <p>
           <a name="buy"></a><h2>Buying options</h2>
-          <ul>
-            <li>
-              <a href="https://goo.gl/forms/9KqDTWTO30CDqKp43" target="_blank" rel="noopener">$0 shipping</a> (if you see Matt regularly)
-            </li>
-            <li><a href="https://www.createspace.com/6581856">Paperback ($8.99)</a></li>
-            <li>Hardback (coming soon)<br/><a href="https://docs.google.com/forms/d/e/1FAIpQLSeV2a2D70IoMWDHBv7D6qi3UbGcRbv1sH-4ZVQQRn5l0JiS7w/viewform" target="_blank" rel="noopener">Be notified when hardback is available.</a></li>
-          </ul>
-        </p>
-        <p>
-          <a name="about" href="https://www.iffycan.com/proudpink">Read about how this book came about.</a>
+          <table class="options">
+            <tr>
+              <td></td>
+              <th colspan="2">In Person<a href="#inperson" style="text-decoration: none;">*</a></th>
+              <th colspan="2">Online</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Paperback</td>
+              <td>Hardback</td>
+              <td>Paperback</td>
+              <td>Hardback</td>
+            </tr>
+            <tr>
+              <td>Price</td>
+              <td>$9</td>
+              <td>$15</td>
+              <td>$9 + $3.59 shipping</td>
+              <td>$15 + shipping</td>
+            </tr>
+            <tr>
+              <th>Buy</th>
+              <th colspan="2"><a class="button" href="https://goo.gl/forms/9KqDTWTO30CDqKp43" target="_blank" rel="noopener">Pre-order</a></th>
+              <th><a class="button" href="https://www.createspace.com/6581856">Buy</a></th>
+              <th><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSeJyo8Q_wSrGvjlgUGAN8YDFQKyOi51dodOiX0YUTVTWcteaA/viewform">Coming soon</a></th>
+            </tr>
+          </table>
+
+          <p>
+            <a name="inperson">*</a>The "In Person" option is only for people that can drop by to pick it up.  Or those that will pay for plane tickets :)
+          </p>
         </p>
         <hr/>
+        <h2>The Story<a name="about"></a></h2>
+        <p>
+          <a href="https://www.iffycan.com/proudpink">Read about how this book came about.</a>
+        </p>
         <p>
           <h2>Newsletter</h2>
           <!-- Begin MailChimp Signup Form -->
