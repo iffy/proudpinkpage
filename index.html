@@ -155,13 +155,9 @@
       border: 1px solid lightgrey;
       padding: 0.5rem;
       text-align: center;
-      color: grey;
     }
     table.options td:empty {
       border: 0;
-    }
-    table.options th {
-      color: black;
     }
     a.button {
       color: white;
@@ -174,6 +170,10 @@
       font-family: 'Arial';
       font-weight: normal;
       text-transform: uppercase;
+    }
+    a.button:hover {
+      background-color: #2980b9;
+      border-color: #2980b9;
     }
   </style>
 </head>
@@ -257,10 +257,10 @@
             </tr>
             <tr>
               <td>Price</td>
-              <td>$8.99</td>
-              <td>$14.99</td>
-              <td>$8.99 + $3.59 shipping</td>
-              <td>$14.99 + shipping</td>
+              <td>$8</td>
+              <td>$14</td>
+              <td>$8.99<br/>+ shipping</td>
+              <td>$14.99<br/>+ shipping</td>
             </tr>
             <tr>
               <th>Buy</th>
@@ -271,7 +271,7 @@
           </table>
 
           <p>
-            <a name="inperson">*</a>The "In Person" option is only for people that can come pick it up.  Or those that will pay for plane tickets :)
+            <a name="inperson">*</a>The "In Person" option is only for people that can come pick it up (e.g. neighborhood, work, near parents, etc...).  Or those that will pay for plane tickets :)
           </p>
         </p>
         <hr/>
