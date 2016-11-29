@@ -179,6 +179,14 @@
       color: rgba(231, 76, 60,1.0);
       font-weight: bold;
     }
+    .strikeout {
+      text-decoration: line-through;
+      opacity: 0.4;
+    }
+    .emph {
+      color: rgba(41, 128, 185,1.0);
+      font-size: 125%;
+    }
   </style>
 </head>
 <body>
@@ -258,7 +266,8 @@
               <td>Hardback</td>
             </tr>
             <tr>
-              <td>$8</td>
+              <td><span class="strikeout">$8</span>
+                <br/><span class="emph">now $7</span></td>
               <td>$14</td>
               <td>$8.99<br/>+ shipping</td>
               <td>$14.99<br/>+ shipping</td>
