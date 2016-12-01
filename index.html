@@ -3,7 +3,7 @@
 <head>
   <meta charset=utf-8>
   <title>The Proud Pink Balloon</title>
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css?family=Arvo|Quattrocento" rel="stylesheet">
 
   <link rel="canonical" href="http://www.theproudpinkballoon.com">
@@ -25,7 +25,6 @@
     .nav {
       display: flex;
       justify-content: flex-start;
-      padding-left: 1.2rem;
     }
     .nav a {
       padding: 1rem 0rem 0;
@@ -46,16 +45,21 @@
     .nav a:last-child:after {
       content: '';
     }
+    .nav a:first-child {
+    }
     .main-title {
       font-family: 'Arvo', serif;
       font-size: 70px;
       border: 0px solid lightgrey;
-      padding: 1rem 1rem;
+      padding: 1rem 0rem;
       line-height: 59px;
       text-align: left;
       text-transform: uppercase;
-      width: 25rem;
       margin: 0 auto;
+    }
+    .main-title div {
+      position: relative;
+      z-index: 2;
     }
     .main-title .the {
       font-size: 75%;
@@ -100,13 +104,13 @@
       perspective: 1800px;
       position: relative;
       transition: left 1s;
-      left: -3.5in;
+      left: -15rem;
     }
     .book.open {
-      left: -2in;
+      left: -5rem;
     }
     .book.back {
-      left: -2in;
+      left: -5rem;
     }
     .book .page {
       position: absolute;
@@ -119,6 +123,7 @@
       transform-origin: 0 0;
       border: 1px solid rgba(0,0,0,0.1);
       border-width: 1px 1px 1px 1px;
+      border-width: 0;
     }
     .page .front {
       position: absolute;
@@ -140,6 +145,12 @@
     }
     .page.flipped {
       transform: rotateY(-180deg);
+    }
+    .hide-on-turn {
+      transition: opacity 0.8s;
+    }
+    .page.flipped .hide-on-turn {
+      opacity: 0;
     }
     .book .page:first-child,
     .book .page:last-child {
@@ -187,120 +198,132 @@
       color: rgba(41, 128, 185,1.0);
       font-size: 125%;
     }
+    .centered-block {
+      max-width: 30rem;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
-  <div class="side-by-side">
-    <div>
-      <img src="cover_med.png" class="pink">
-    </div>
-    <div>
-      <div class="nav">
-        <a href="#sample">Sample</a>
-        <a href="#buy">Buy</a>
-        <a href="#about">About</a>
-      </div>
-      <div class="main-title">
-        <div class="the">the</div>
-        <div>Proud</div>
-        <div>Pink</div>
-        <div>Balloon</div>
-      </div>
-      <div class="allthetext">
-        <p>
-          A children's story about a balloon with an inflated ego.
-        </p>
-        <p>
-          By Matt Haggard (his first book)
-        </p>
-        <a name="sample"></a>
-        <div class="book" style="width: 7in; height: 3.5in; margin-top: 2rem; transform: rotateZ(-5deg);" id="book">
-          <div class="page">
-            <div class="front" style="background-image: url(pages/justcover.png); background-size: contain;">
-              <div style="position: absolute; top: 13px; right: -17px;">
-                <img style="position: absolute; width: 140px; height: 120px; transform: rotateZ(133deg);" src="arrow.svg">
-                <div style="position: absolute; font-size: 1.2rem; left: 26px; text-align: center;">Peek inside</div>
-              </div>
-            </div>
-            <div class="back" style="background-color: white;"></div>
-          </div>
-          <div class="page">
-            <div class="front" style="background-image: url(pages/page005.png);"></div>
-            <div class="back" style="background-image: url(pages/page006.png);"></div>
-          </div>
-          <div class="page">
-            <div class="front" style="background-image: url(pages/page007.png);"></div>
-            <div class="back" style="background-image: url(pages/page008.png);"></div>
-          </div>
-          <div class="page">
-            <div class="front" style="background-image: url(pages/page009.png);"></div>
-            <div class="back" style="background-image: url(pages/page010.png);"></div>
-          </div>
-          <div class="page">
-            <div class="front" style="background-image: url(pages/page011.png);"></div>
-            <div class="back" style="background-image: url(pages/page012.png);"></div>
-          </div>
-          <div class="page">
-            <div class="front" style="background-image: url(pages/page013.png);"></div>
-            <div class="back" style="background-color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-              <div><a href="#buy">Get the book</a> to find out what happens!</div>
-              <div>(as if you couldn't guess :)</div>
-            </div>
-          </div>
-        </div>
-        <p>
-          <a href="sample.pdf" target="_blank" rel="noopener">PDF Sample (if the little book doesn't work)</a>
-        </p>
-        <hr/>
-        <p>
-          <a name="buy"></a><h2>Buying options</h2>
-          <table class="options">
-            <tr>
-              <th colspan="2">In Person<a href="#inperson" style="text-decoration: none;">*</a></th>
-              <th colspan="2">Online</th>
-            </tr>
-            <tr>
-              <td>Paperback</td>
-              <td>Hardback</td>
-              <td>Paperback</td>
-              <td>Hardback</td>
-            </tr>
-            <tr>
-              <td><span class="strikeout">$8</span>
-                <br/><span class="emph">now $7</span></td>
-              <td><span class="strikeout">$14</span>
-                <br/><span class="emph">now $13</span></td>
-              <td>$8.99<br/>+ shipping</td>
-              <td>$14.99<br/>+ shipping</td>
-            </tr>
-            <tr>
-              <th colspan="2"><a class="button" href="https://goo.gl/forms/9KqDTWTO30CDqKp43" target="_blank" rel="noopener">Yes, please</a></th>
-              <th><a class="button" href="https://www.createspace.com/6581856" target="_blank">Buy</a></th>
-              <th><a class="button" href="https://www.amazon.com/dp/0692792333" target="_blank">Buy</a></th>
-            </tr>
-            <tr>
-              <th colspan="2" class="warning">
-                <div>Limited time.</div>
-                <div>Orders must be placed by Saturday, Dec 3rd 2016.</div>
-              </th>
-            </tr>
-          </table>
-
-          <p>
-            <a name="inperson">*</a>The "In Person" option is only for people that can come pick it up in Provo (e.g. neighborhood, work, near parents etc...).  Or those that will pay for plane tickets :)
-          </p>
-        </p>
-        <hr/>
-        <h2>The Story<a name="about"></a></h2>
-        <p>
-          <a href="https://www.iffycan.com/proudpink">Read about how this book came about.</a>
-        </p>
-        <p class="faint">
-          Copyright &copy; Matt Haggard
-        </p>
-      </div>
+<div class="centered-block">
+  <div class="nav">
+    <a href="#sample">Sample</a>
+    <a href="#buy">Order a copy</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="main-title" style="position: relative;">
+    <img src="images/cover_med.png" style="position: absolute; right: 4rem; top: 0px; max-height: 100%"/>
+    <div class="the">the</div>
+    <div>Proud</div>
+    <div>Pink</div>
+    <div>Balloon</div>
+  </div>
+  <div style="position: relative;">
+    <img src="images/bird_med.png" style="max-width: 100%; position: relative; left: -8rem; z-index: -1; margin-top: -8rem;">
+    <div style="position: absolute; z-index: 2; top: 0; right: 0; width: 50%;">
+      <p>
+        A children's story about a balloon with an inflated ego.
+      </p>
+      <p>
+        By Matt Haggard (his first book)
+      </p>
     </div>
   </div>
+</div>
+
+<a name="sample"></a>
+<div style="background-image: url(images/woodfloor_med.jpg); background-size: cover; margin: 1rem 0; padding: 4rem 0;">
+  <div class="centered-block">
+    <div class="book" style="width: 7in; height: 3.5in; margin-top: 2rem; transform: rotateZ(-5deg);" id="book">
+      <div class="page">
+        <div class="front" style="background-image: url(pages/justcover.png); background-size: contain;">
+          <div class="hide-on-turn" style="position: absolute; top: 13px; right: -17px;">
+            <img style="position: absolute; width: 140px; height: 120px; transform: rotateZ(133deg);" src="images/arrow.svg">
+            <div style="position: absolute; font-size: 1.2rem; left: 26px; text-align: center; color: white;">Peek inside</div>
+          </div>
+        </div>
+        <div class="back" style="background-color: white;"></div>
+      </div>
+      <div class="page">
+        <div class="front" style="background-image: url(pages/page005.png);"></div>
+        <div class="back" style="background-image: url(pages/page006.png);"></div>
+      </div>
+      <div class="page">
+        <div class="front" style="background-image: url(pages/page007.png);"></div>
+        <div class="back" style="background-image: url(pages/page008.png);"></div>
+      </div>
+      <div class="page">
+        <div class="front" style="background-image: url(pages/page009.png);"></div>
+        <div class="back" style="background-image: url(pages/page010.png);"></div>
+      </div>
+      <div class="page">
+        <div class="front" style="background-image: url(pages/page011.png);"></div>
+        <div class="back" style="background-image: url(pages/page012.png);"></div>
+      </div>
+      <div class="page">
+        <div class="front" style="background-image: url(pages/page013.png);"></div>
+        <div class="back" style="background-color: white; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 5rem; box-sizing: border-box; font-size: 1.5rem; line-height: 2.5rem;">
+          <div style="text-align: center;"><a href="#buy">Get the book</a> to find out what happens! (as if you couldn't guess :)</div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align: center;">
+      <a href="sample.pdf" target="_blank" rel="noopener" style="color: white; text-align: center;">PDF Sample (if the little book doesn't work)</a>
+    </p>
+  </div>
+</div>
+  
+
+<div class="centered-block">
+  <div class="allthetext"> 
+    <p>
+      <a name="buy"></a><h2>Buying options</h2>
+      <table class="options">
+        <tr>
+          <th colspan="2">In Person<a href="#inperson" style="text-decoration: none;">*</a></th>
+          <th colspan="2">Online</th>
+        </tr>
+        <tr>
+          <td>Paperback</td>
+          <td>Hardback</td>
+          <td>Paperback</td>
+          <td>Hardback</td>
+        </tr>
+        <tr>
+          <td><span class="strikeout">$8</span>
+            <br/><span class="emph">now $7</span></td>
+          <td><span class="strikeout">$14</span>
+            <br/><span class="emph">now $13</span></td>
+          <td>$8.99<br/>+ shipping</td>
+          <td>$14.99<br/>+ shipping</td>
+        </tr>
+        <tr>
+          <th colspan="2"><a class="button" href="https://goo.gl/forms/9KqDTWTO30CDqKp43" target="_blank" rel="noopener">Order</a></th>
+          <th><a class="button" href="https://www.createspace.com/6581856" target="_blank">Buy</a></th>
+          <th><a class="button" href="https://www.amazon.com/dp/0692792333" target="_blank">Buy</a></th>
+        </tr>
+        <tr>
+          <th colspan="2" class="warning">
+            <div>Limited time.</div>
+            <div>Orders must be placed by Saturday, Dec 3rd 2016.</div>
+          </th>
+        </tr>
+      </table>
+
+      <p>
+        <a name="inperson">*</a>The "In Person" option is only for people that can come pick it up in Provo (e.g. neighborhood, work, near parents etc...).  Or those that will pay for plane tickets :)
+      </p>
+    </p>
+    <hr/>
+    <h2>The Story<a name="about"></a></h2>
+    <p>
+      <a href="https://www.iffycan.com/proudpink">Read about how this book came about.</a>
+    </p>
+    <p class="faint">
+      Copyright &copy; Matt Haggard
+    </p>
+  </div>
+</div>
   <script>
   function addClass(elem, cls) {
     var class_list = elem.className.split(/\s+/g);
